@@ -36,7 +36,27 @@
 <button onclick="stopMgm('mgmPlayer2')">3 Günlük Kapat</button>
 
 <p id="mgmStatus2"></p>
-
+<div id="clock"></div> <script type="text/javascript">
+function refrClock()
+{
+var d=new Date();
+var s=d.getSeconds();
+var m=d.getMinutes();
+var h=d.getHours();
+var day=d.getDay();
+var date=d.getDate();
+var month=d.getMonth();
+var year=d.getFullYear();
+var days=new Array("Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi");
+var months=new Array("Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık");
+if (s<10) {s="0" + s}
+if (m<10) {m="0" + m}
+document.getElementById("clock").innerHTML= "<b>Tarih:</b> " + date + " " + months[month] + " " + year + " | <b>Günlerden:</b> " + days[day] + " | <b>Saat:</b> " + h + ":" + m + ":" + s + " "
+setTimeout("refrClock()",1000);
+}
+refrClock();
+</script>
+<hr style="border: none; border-top: 5px solid black;">
 <h1>Siteler</h1>
 * <a href="https://mgmfm.heytr.live/">https://mgmfm.heytr.live/</a>
 <br>
