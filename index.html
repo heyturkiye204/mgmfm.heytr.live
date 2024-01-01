@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MGM FM Çalar</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #mgmPlayer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>MGM FM</h1>
+
+<audio id="mgmPlayer" src="https://www.mgm.gov.tr/Files/mp3/hava.mp3"></audio>
+<audio id="3ddPlayer" src="https://www.mgm.gov.tr/Files/mp3/3Ghava.mp3"></audio>
+
+<button onclick="playMgm()">Günlük Aç</button>
+<button onclick="stopMgm()">Günlük Kapat</button>
+<button onclick="play3dd()">3 Günlük Aç</button>
+<button onclick="stop3dd()">3 Günlük Kapat</button>
+
+<script>
+    var mgmPlayer = document.getElementById('mgmPlayer');
+
+    function playMgm() {
+        mgmPlayer.play();
+        alert('MGM FM açılıyor.');
+    }
+
+    function stopMgm() {
+        mgmPlayer.pause();
+        mgmPlayer.currentTime = 0;
+        alert('MGM FM kapanıyor.');
+    }
+
+
+    var mgmPlayer = document.getElementById('3ddPlayer');
+
+    function playMgm() {
+        3ddPlayer.play();
+        alert('MGM FM (3 günlük) açılıyor.');
+    }
+
+    function stopMgm() {
+        mgmPlayer.pause();
+        mgmPlayer.currentTime = 0;
+        alert('MGM FM (3 günlük) kapanıyor.');
+    }
+</script>
+
+</body>
+</html>
