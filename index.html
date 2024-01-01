@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MGM FM Çalar</title>
+    <link rel="shortcut icon" href="https://static.meteoblue.com/assets/images/picto/02_iday.svg" type="image/x-icon" >
+    <title>Türkiye Hava Durumu | Meteoroloji Genel Müdürlüğü</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
         body {
             font-family: 'Montserrat', sans-serif;
             text-align: center;
@@ -12,7 +14,7 @@
             padding: 0;
         }
 
-        #mgmPlayer {
+        .mgmPlayer {
             margin-top: 20px;
         }
     </style>
@@ -21,40 +23,51 @@
 
 <h1>MGM FM</h1>
 
-<audio id="mgmPlayer" src="https://www.mgm.gov.tr/Files/mp3/hava.mp3"></audio>
-<audio id="3ddPlayer" src="https://www.mgm.gov.tr/Files/mp3/3Ghava.mp3"></audio>
+<audio id="mgmPlayer1" class="mgmPlayer" src="https://www.mgm.gov.tr/Files/mp3/hava.mp3"></audio>
 
-<button onclick="playMgm()">Günlük Aç</button>
-<button onclick="stopMgm()">Günlük Kapat</button>
-<button onclick="play3dd()">3 Günlük Aç</button>
-<button onclick="stop3dd()">3 Günlük Kapat</button>
+<button onclick="playMgm('mgmPlayer1')">Günlük Aç</button>
+<button onclick="stopMgm('mgmPlayer1')">Günlük Kapat</button>
+
+<p id="mgmStatus1"></p>
+
+<audio id="mgmPlayer2" class="mgmPlayer" src="https://www.mgm.gov.tr/Files/mp3/3Ghava.mp3"></audio>
+
+<button onclick="playMgm('mgmPlayer2')">3 Günlük Aç</button>
+<button onclick="stopMgm('mgmPlayer2')">3 Günlük Kapat</button>
+
+<p id="mgmStatus2"></p>
 
 <script>
-    var mgmPlayer = document.getElementById('mgmPlayer');
+    var mgmPlayers = {
+        'mgmPlayer1': { 'url': 'https://www.mgm.gov.tr/Files/mp3/hava.mp3', 'statusElement': 'mgmStatus1', 'isPlaying': false },
+        'mgmPlayer2': { 'url': 'https://www.mgm.gov.tr/Files/mp3/3Ghava.mp3', 'statusElement': 'mgmStatus2', 'isPlaying': false }
+    };
 
-    function playMgm() {
-        mgmPlayer.play();
-        alert('MGM FM açılıyor.');
+    function playMgm(playerId) {
+        var player = document.getElementById(playerId);
+
+        if (!mgmPlayers[playerId].isPlaying) {
+            player.play();
+            document.getElementById(mgmPlayers[playerId].statusElement).innerText = 'MGM FM açılıyor.';
+        } else {
+            document.getElementById(mgmPlayers[playerId].statusElement).innerText = 'MGM FM zaten açık.';
+        }
+
+        mgmPlayers[playerId].isPlaying = true;
     }
 
-    function stopMgm() {
-        mgmPlayer.pause();
-        mgmPlayer.currentTime = 0;
-        alert('MGM FM kapanıyor.');
-    }
+    function stopMgm(playerId) {
+        var player = document.getElementById(playerId);
 
+        if (mgmPlayers[playerId].isPlaying) {
+            player.pause();
+            player.currentTime = 0;
+            document.getElementById(mgmPlayers[playerId].statusElement).innerText = 'MGM FM kapanıyor.';
+        } else {
+            document.getElementById(mgmPlayers[playerId].statusElement).innerText = 'MGM FM zaten kapalı.';
+        }
 
-    var mgmPlayer = document.getElementById('3ddPlayer');
-
-    function playMgm() {
-        3ddPlayer.play();
-        alert('MGM FM (3 günlük) açılıyor.');
-    }
-
-    function stopMgm() {
-        mgmPlayer.pause();
-        mgmPlayer.currentTime = 0;
-        alert('MGM FM (3 günlük) kapanıyor.');
+        mgmPlayers[playerId].isPlaying = false;
     }
 </script>
 
