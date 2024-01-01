@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://static.meteoblue.com/assets/images/picto/02_iday.svg" type="image/x-icon" >
+    <title>Türkiye Hava Durumu | Meteoroloji Genel Müdürlüğü</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mgmPlayer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>MGM FM</h1>
+
+<audio id="mgmPlayer1" class="mgmPlayer" src="https://www.mgm.gov.tr/Files/mp3/hava.mp3"></audio>
+
+<button onclick="playMgm('mgmPlayer1')">Günlük Aç</button>
+<button onclick="stopMgm('mgmPlayer1')">Günlük Kapat</button>
+
+<p id="mgmStatus1"></p>
+
+<audio id="mgmPlayer2" class="mgmPlayer" src="https://www.mgm.gov.tr/Files/mp3/3Ghava.mp3"></audio>
+
+<button onclick="playMgm('mgmPlayer2')">3 Günlük Aç</button>
+<button onclick="stopMgm('mgmPlayer2')">3 Günlük Kapat</button>
+
+<p id="mgmStatus2"></p>
+
+<h1>Siteler</h1>
+* <a href="https://mgmfm.heytr.live/">https://mgmfm.heytr.live/</a>
+<br>
+* <a href="https://www.mgmfm.heytr.live/">https://www.mgmfm.heytr.live/</a>
+<br>
+* <a href="https://havatahmini.heytr.live/">https://havatahmini.heytr.live/</a>
+<br>   
+* <a href="https://www.havatahmini.heytr.live/">https://www.havatahmini.heytr.live/</a>
+<br>
+* <a href="https://havadurumu.heytr.live/">https://havadurumu.heytr.live/</a>
+<br>
+* <a href="https://www.havadurumu.heytr.live/">https://www.havadurumu.heytr.live/</a>
+<br>
+* <a href="https://meteoroloji.heytr.live/">https://meteoroloji.heytr.live/</a>
+<br>
+* <a href="https://www.meteoroloji.heytr.live/">https://www.meteoroloji.heytr.live/</a>
+<br>
+<script>
+    var mgmPlayers = {
+        'mgmPlayer1': { 'url': 'https://www.mgm.gov.tr/Files/mp3/hava.mp3', 'statusElement': 'mgmStatus1', 'isPlaying': false },
+        'mgmPlayer2': { 'url': 'https://www.mgm.gov.tr/Files/mp3/3Ghava.mp3', 'statusElement': 'mgmStatus2', 'isPlaying': false }
+    };
+
+    function playMgm(playerId) {
+        var player = document.getElementById(playerId);
+
+        if (!mgmPlayers[playerId].isPlaying) {
+            player.play();
+            document.getElementById(mgmPlayers[playerId].statusElement).innerText = 'MGM FM açılıyor.';
+        } else {
+            document.getElementById(mgmPlayers[playerId].statusElement).innerText = 'MGM FM zaten açık.';
+        }
+
+        mgmPlayers[playerId].isPlaying = true;
+    }
+
+    function stopMgm(playerId) {
+        var player = document.getElementById(playerId);
+
+        if (mgmPlayers[playerId].isPlaying) {
+            player.pause();
+            player.currentTime = 0;
+            document.getElementById(mgmPlayers[playerId].statusElement).innerText = 'MGM FM kapanıyor.';
+        } else {
+            document.getElementById(mgmPlayers[playerId].statusElement).innerText = 'MGM FM zaten kapalı.';
+        }
+
+        mgmPlayers[playerId].isPlaying = false;
+    }
+</script>
+
+</body>
+</html>
