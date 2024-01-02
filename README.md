@@ -1,7 +1,8 @@
 # mgm.heytr.live
 <img width="200" align="right" src="https://raw.githubusercontent.com/heyturkiye204/mgmfm.heytr.live/cd21bf38497d1d3658e0e85c3c8b4c859aca8094/mgm-logo.svg" />
-<b>MGM FM</b>'e hoşgeldiniz! Burda T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Meteoroloji Genel Müdürlüğü tarafından oluşturulmuş <b>Sesli E-bülten haberlerini</b> sitede .mp3 dosyası biçiminde sunarak sitede paylaşıyorum. 
-Bu site resmî kurum tarafından oluşturulmuş site değildir, sadece araç olarak tasarlanmıştır. Bu sitenin kodu tamamen <b>kâr amacı gütmeden tasarlanmıştır</b> ve kodların <b>her hakkı bana aittir</b>. Kodda herhangi bir <b>virüs/trojen bulunmamaktadır</b>.
+Bu açık kaynak kodunda T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Meteoroloji Genel Müdürlüğü tarafından oluşturulan sesli e-bülten haberlerini .mp3 dosya formatında siteye sunuyorum.
+
+<b>Not</b>: Bu site, resmi bir kurum tarafından oluşturulmuş bir site değildir; sadece bir araç olarak tasarlanmıştır. Kodlar, tamamen kâr amacı gütmeden tasarlanmış olup, kodların telif hakkı bana aittir.
 
 ## Telif Hakları
 * Sitenin Her Türlü Kodu Bana Aittir ve Her Türlü Düzenlemek/Kullanmak Serbesttir. Başka proje/FM/ses için kullanabilirsiniz.
