@@ -5,7 +5,7 @@ Bu site resmî kurum tarafından oluşturulmuş site değildir, sadece araç ola
 
 ## Telif Hakları
 * Sitenin Her Türlü Kodu Bana Aittir ve Her Türlü Düzenlemek/Kullanmak Serbesttir. Başka proje/FM/ses için kullanabilirsiniz.
-* Site içindeki .mp3 dosyalarının telif hakları MGM'ye aittir. o yüzden sitedeki .mp3 dosyalarını [bilgi@mgm.gov.tr](mailto:bilgi@mgm.gov.tr) adresini bilgilendirmek şartıyla kullanabilirsiniz. Aksi takdirde tüm haklar MGM'ye aittir.
+* Site içindeki .mp3 dosyalarının telif hakları MGM'ye aittir. o yüzden sitedeki .mp3 dosyalarını [bilgi@mgm.gov.tr](mailto:bilgi@mgm.gov.tr) adresini bilgilendirmek şartıyla kullanabilirsiniz. Aksi takdirde tüm haklar (dava açma hakkı vs.) MGM'ye aittir.
 
 ## İletişim
 E-posta: [me@heytr.live](mailto:me@heytr.live)
