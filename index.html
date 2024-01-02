@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://static.meteoblue.com/assets/images/picto/02_iday.svg" type="image/x-icon" >
+    <link rel="shortcut icon" href="https://static.meteoblue.com/assets/images/picto/02_iday.svg" type="image/x-icon">
     <title>Türkiye Hava Durumu | Meteoroloji Genel Müdürlüğü</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -25,38 +25,41 @@
 
 <audio id="mgmPlayer1" class="mgmPlayer" src="https://www.mgm.gov.tr/Files/mp3/hava.mp3"></audio>
 
-<button onclick="playMgm('mgmPlayer1')">Günlük Aç</button>
-<button onclick="stopMgm('mgmPlayer1')">Günlük Kapat</button>
-
-<p id="mgmStatus1"></p>
+<button onclick="playGunluk()">Günlük Aç</button>
+<button onclick="stopGunluk()">Günlük Kapat</button>
 
 <audio id="mgmPlayer2" class="mgmPlayer" src="https://www.mgm.gov.tr/Files/mp3/3Ghava.mp3"></audio>
 
-<button onclick="playMgm('mgmPlayer2')">3 Günlük Aç</button>
-<button onclick="stopMgm('mgmPlayer2')">3 Günlük Kapat</button>
+<button onclick="playUcGunluk()">3 Günlük Aç</button>
+<button onclick="stopUcGunluk()">3 Günlük Kapat</button>
+
 <br>
-<a href="https://www.mgm.gov.tr/site/yasal-uyari.aspx">Meteoroloji  Genel  Müdürlüğü © 2024, Her hakkı saklıdır.</a>
+<a href="https://www.mgm.gov.tr/site/yasal-uyari.aspx">Meteoroloji Genel Müdürlüğü © 2024, Her hakkı saklıdır.</a>
 <br>
-<p id="mgmStatus2"></p>
-<div id="clock"></div> <script type="text/javascript">
-function refrClock()
-{
-var d=new Date();
-var s=d.getSeconds();
-var m=d.getMinutes();
-var h=d.getHours();
-var day=d.getDay();
-var date=d.getDate();
-var month=d.getMonth();
-var year=d.getFullYear();
-var days=new Array("Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi");
-var months=new Array("Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık");
-if (s<10) {s="0" + s}
-if (m<10) {m="0" + m}
-document.getElementById("clock").innerHTML= "<b>Tarih:</b> " + date + " " + months[month] + " " + year + " | <b>Günlerden:</b> " + days[day] + " | <b>Saat:</b> " + h + ":" + m + ":" + s + " "
-setTimeout("refrClock()",1000);
-}
-refrClock();
+<div id="clock"></div>
+<script type="text/javascript">
+    function refrClock() {
+        var d = new Date();
+        var s = d.getSeconds();
+        var m = d.getMinutes();
+        var h = d.getHours();
+        var day = d.getDay();
+        var date = d.getDate();
+        var month = d.getMonth();
+        var year = d.getFullYear();
+        var days = new Array("Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi");
+        var months = new Array("Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık");
+        if (s < 10) {
+            s = "0" + s
+        }
+        if (m < 10) {
+            m = "0" + m
+        }
+        document.getElementById("clock").innerHTML = "<b>Tarih:</b> " + date + " " + months[month] + " " + year + " | <b>Günlerden:</b> " + days[day] + " | <b>Saat:</b> " + h + ":" + m + ":" + s + " "
+        setTimeout("refrClock()", 1000);
+    }
+
+    refrClock();
 </script>
 <hr style="border: none; border-top: 5px solid black;">
 <h1>Siteler</h1>
@@ -65,7 +68,7 @@ refrClock();
 * <a href="https://www.mgmfm.heytr.live/">https://www.mgmfm.heytr.live/</a>
 <br>
 * <a href="https://havatahmini.heytr.live/">https://havatahmini.heytr.live/</a>
-<br>   
+<br>
 * <a href="https://www.havatahmini.heytr.live/">https://www.havatahmini.heytr.live/</a>
 <br>
 * <a href="https://havadurumu.heytr.live/">https://havadurumu.heytr.live/</a>
@@ -77,36 +80,63 @@ refrClock();
 * <a href="https://www.meteoroloji.heytr.live/">https://www.meteoroloji.heytr.live/</a>
 <br>
 <script>
-    var mgmPlayers = {
-        'mgmPlayer1': { 'url': 'https://www.mgm.gov.tr/Files/mp3/hava.mp3', 'statusElement': 'mgmStatus1', 'isPlaying': false },
-        'mgmPlayer2': { 'url': 'https://www.mgm.gov.tr/Files/mp3/3Ghava.mp3', 'statusElement': 'mgmStatus2', 'isPlaying': false }
-    };
+    var mgmPlayer1 = document.getElementById('mgmPlayer1');
+    var mgmPlayer2 = document.getElementById('mgmPlayer2');
+    var isGunlukPlaying = false;
+    var isUcGunlukPlaying = false;
 
-    function playMgm(playerId) {
-        var player = document.getElementById(playerId);
-
-        if (!mgmPlayers[playerId].isPlaying) {
-            player.play();
-            document.getElementById(mgmPlayers[playerId].statusElement).innerText = 'MGM FM açılıyor.';
+    function playGunluk() {
+        if (!isGunlukPlaying) {
+            if (isUcGunlukPlaying) {
+                alert('3 Günlük açık, lütfen onu kapatın.');
+            } else {
+                mgmPlayer1.play();
+                alert('MGM FM Günlük açılıyor.');
+            }
         } else {
-            document.getElementById(mgmPlayers[playerId].statusElement).innerText = 'MGM FM zaten açık.';
+            alert('MGM FM Günlük zaten açık.');
         }
 
-        mgmPlayers[playerId].isPlaying = true;
+        isGunlukPlaying = true;
     }
 
-    function stopMgm(playerId) {
-        var player = document.getElementById(playerId);
-
-        if (mgmPlayers[playerId].isPlaying) {
-            player.pause();
-            player.currentTime = 0;
-            document.getElementById(mgmPlayers[playerId].statusElement).innerText = 'MGM FM kapanıyor.';
+    function stopGunluk() {
+        if (isGunlukPlaying) {
+            mgmPlayer1.pause();
+            mgmPlayer1.currentTime = 0;
+            alert('MGM FM Günlük kapanıyor.');
         } else {
-            document.getElementById(mgmPlayers[playerId].statusElement).innerText = 'MGM FM zaten kapalı.';
+            alert('MGM FM Günlük zaten kapalı.');
         }
 
-        mgmPlayers[playerId].isPlaying = false;
+        isGunlukPlaying = false;
+    }
+
+    function playUcGunluk() {
+        if (!isUcGunlukPlaying) {
+            if (isGunlukPlaying) {
+                alert('Günlük açık, lütfen onu kapatın.');
+            } else {
+                mgmPlayer2.play();
+                alert('MGM FM 3 Günlük açılıyor.');
+            }
+        } else {
+            alert('MGM FM 3 Günlük zaten açık.');
+        }
+
+        isUcGunlukPlaying = true;
+    }
+
+    function stopUcGunluk() {
+        if (isUcGunlukPlaying) {
+            mgmPlayer2.pause();
+            mgmPlayer2.currentTime = 0;
+            alert('MGM FM 3 Günlük kapanıyor.');
+        } else {
+            alert('MGM FM 3 Günlük zaten kapalı.');
+        }
+
+        isUcGunlukPlaying = false;
     }
 </script>
 
