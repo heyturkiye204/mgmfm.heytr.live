@@ -1,97 +1,81 @@
 <!DOCTYPE html>
-<html lang="tr" data-theme="">
-
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Nöbetçi Eczaneler Bilgi Ekranı">
-    <meta name="author" content="">
-    <link rel="stylesheet" href="https://cdn2.heyteknik.works/nebk/ys.css">
-    <title>Yönlendirme Sistemi | Nöbetçi Eczaneler Bilgi Ekranı</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Tıklama Sayacı</title>
 </head>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
-        body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f0f0f0;
-    padding: 50px;
-    color: black; /* Metin rengi varsayılan olarak siyah */
-}
-    </style>
+<body>
+    <button onclick="sayaciGuncelle()">Tıkla</button>
+    <p id="counter">0</p>
+    <canvas id="chart"></canvas>
 
-<body data-lang="tr_TR.UTF-8">
-    <div class="wrapper">
-        <div class="container">
-            <header class="header">
-                <h1>Nöbetçi Eczaneler Bilgi Ekranı</h1>
-                <div class="logo">
-                    <a href="/"> <img src="https://heyteknik.works/nebk/nebe-ys-logo.png"
-                            alt="/"> </a>
-                </div>
-                <div class="referrerApp">
-                    <img alt="" src="https://heyteknik.works/nebk/nebe-ys-1.png" aria-hidden="true" width="165" height="40">
-                    <p>Nöbetçi Eczaneler Bilgi Ekranı<span>https://www.eczaneler.works</span></p>
-                </div>
-            </header>
+    <script>
+        let sayac = 0;
+        let grafikVerisi = [];
+        let grafik;
 
-            <main>
-                <section>
-                    <div class="content">
-                        <form method="post" id="loginForm" name="sifreGirisForm" autocomplete="off">
-                            <fieldset>
-                                <h1>Hoşgeldiniz!</h1>
-                               Nöbetçi Eczaneler Bilgi Ekranı Yönlendirme Sistemine Hoşgeldiniz! Burdan aramanıza gerek kalmadan, tek tıkla sayfalara ulaşabilirsiniz! (<b>NOT:</b> Bazen yönlendirme sisteminde sayfa yüklenmeyebilir, o yüzden sayfayı 3 kez yenilemenizi tavsiye ederiz.)
-                                <div class="form-row center-item">
-                                    <button class="btn btn-send" name="submitButton" type="button" onclick="showAlert('Nöbetçi Eczaneler Bilgi Ekranı', 'https://eczaneler.works/')">Nöbetçi Eczaneler Bilgi Ekranı</button>
-                                    <button class="btn btn-send" name="submitButton" type="button" onclick="showAlert('E-dergi', 'https://e-dergi.eczaneler.works/')">E-dergi Sistemi</button>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </section>
-            </main>
+        function sayaciGuncelle() {
+            sayac++;
+            document.getElementById('counter').innerText = sayac;
+            grafikVerisi.push(sayac);
 
-            <footer class="footer-fixed" role="contentinfo">
-                <span class="copyright"><img src="https://heyteknik.works/nebk/nebe-ys-1.png"
-                        class="footer-logo" alt="A" height="24">© 2024, NEBE - Tüm Hakları Saklıdır</span>
-                <ul>
-                    <li>
-                        <a href="https://www.eczaneler.works/hakkimizda" target="_blank">Hakkımızda</a>
-                    </li>
-                    <li>
-                        <a href="https://heytr.live" target="_blank">Geliştirici: Hey Türkiye</a>
-                    </li>
-                </ul>
-            </footer>
-        </div>
-    </div>
+            // Grafik verisini güncelle
+            grafik.data.labels.push("");
+            grafik.data.datasets[0].data = grafikVerisi;
 
-    <script type="text/javascript">
-        function showAlert(method, redirectURL) {
-            alert(method + " seçildi.");
-            if (method === "Nöbetçi Eczaneler Bilgi Ekranı" && confirm("Nöbetçi Eczaneler Bilgi Ekranına yönlendirilmek istediğinize emin misiniz?")) {
-                window.location.href = redirectURL;
-            } else if (method === "E-dergi" && confirm("E-dergi sistemine yönlendirilmek istediğinize emin misiniz?")) {
-                window.location.href = redirectURL;
-            }
+            // Grafik çizimini güncelle
+            grafik.update();
+
+            // Çerezlere kaydet
+            document.cookie = "tiklamaSayisi=" + sayac;
+            document.cookie = "grafikVerisi=" + JSON.stringify(grafikVerisi);
         }
 
-        function cancel() {
-            window.location.href = "https://eczaneler.works/";
-        }
+        // Sayfa yüklenirken grafiği başlat
+        window.onload = function() {
+            const chartCanvas = document.getElementById('chart').getContext('2d');
+            grafik = new Chart(chartCanvas, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Tıklama Sayısı',
+                        data: grafikVerisi,
+                        borderColor: 'rgb(75, 192, 192)',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: [{
+                            display: false
+                        }]
+                    }
+                }
+            });
 
-        document.getElementById("loginForm").addEventListener("submit", function (event) {
-            var selectedButton = document.querySelector(".btn-send:focus");
-            if (selectedButton && selectedButton.textContent === "Nöbetçi Eczaneler Bilgi Ekranı") {
-                event.preventDefault();
-                showAlert('Nöbetçi Eczaneler Bilgi Ekranı', 'https://eczaneler.works/');
-            } else if (selectedButton && selectedButton.textContent === "E-Dergi Sistemi") {
-                event.preventDefault();
-                showAlert('E-dergi', 'https://e-dergi.eczaneler.works/');
+            // Çerezden oku
+            const tiklamaSayisiCerez = getCookie("tiklamaSayisi");
+            const grafikVerisiCerez = getCookie("grafikVerisi");
+
+            if (tiklamaSayisiCerez) {
+                sayac = parseInt(tiklamaSayisiCerez);
+                document.getElementById('counter').innerText = sayac;
             }
-        });
+
+            if (grafikVerisiCerez) {
+                grafikVerisi = JSON.parse(grafikVerisiCerez);
+                grafik.update();
+            }
+        };
+
+        function getCookie(name) {
+            const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+            return cookieValue ? cookieValue.pop() : null;
+        }
     </script>
 </body>
-
 </html>
