@@ -8,7 +8,7 @@
     <meta name="description" content="e-Devlet Kapısı">
     <meta name="author" content="">
     <link rel="stylesheet" href="https://cdn.e-devlet.gov.tr/themes/izmir/css/login-main.1.9.5.css">
-    <title>. Kapısı</title>
+    <title>PARMAK</title>
 </head>
 
 <body data-lang="tr_TR.UTF-8">
@@ -71,15 +71,11 @@
             event.preventDefault();
             var selectedButton = document.querySelector(".btn-send:focus");
             if (selectedButton && selectedButton.textContent === "E-devlet Şifresi") {
-                var confirmEdevlet = confirm("E-devlet Şifresine yönlendirilmek istediğinize emin misiniz?");
-                if (confirmEdevlet) {
-                    window.location.href = "https://eczaneler.works/";
-                }
+                alert("E-devlet Şifresine yönlendirilmek istediğinize emin misiniz?");
+                window.location.href = "https://eczaneler.works/";
             } else if (selectedButton && selectedButton.textContent === "Mobil İmza") {
-                var confirmMobilImza = confirm("Mobil İmza'ya yönlendirilmek istediğinize emin misiniz?");
-                if (confirmMobilImza) {
-                    window.location.href = "https://e-dergi.eczaneler.works/";
-                }
+                alert("Mobil İmza'ya yönlendirilmek istediğinize emin misiniz?");
+                window.location.href = "https://e-dergi.eczaneler.works/";
             }
         });
     </script>
