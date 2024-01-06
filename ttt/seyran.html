@@ -3,72 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #counter {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
     <title>Tıklama Sayacı</title>
 </head>
 <body>
     <button onclick="sayaciGuncelle()">Tıkla</button>
+    <button onclick="sifirla()">Çerezleri Sıfırla</button>
     <p id="counter">0</p>
-    <canvas id="chart"></canvas>
 
     <script>
         let sayac = 0;
-        let grafikVerisi = [];
-        let grafik;
 
         function sayaciGuncelle() {
             sayac++;
             document.getElementById('counter').innerText = sayac;
-            grafikVerisi.push(sayac);
-
-            // Grafik verisini güncelle
-            grafik.data.labels.push("");
-            grafik.data.datasets[0].data = grafikVerisi;
-
-            // Grafik çizimini güncelle
-            grafik.update();
 
             // Çerezlere kaydet
             document.cookie = "tiklamaSayisi=" + sayac;
-            document.cookie = "grafikVerisi=" + JSON.stringify(grafikVerisi);
         }
 
-        // Sayfa yüklenirken grafiği başlat
-        window.onload = function() {
-            const chartCanvas = document.getElementById('chart').getContext('2d');
-            grafik = new Chart(chartCanvas, {
-                type: 'line',
-                data: {
-                    labels: [],
-                    datasets: [{
-                        label: 'Tıklama Sayısı',
-                        data: grafikVerisi,
-                        borderColor: 'rgb(75, 192, 192)',
-                        borderWidth: 2,
-                        fill: false
-                    }]
-                },
-                options: {
-                    scales: {
-                        x: [{
-                            display: false
-                        }]
-                    }
-                }
-            });
+        function sifirla() {
+            sayac = 0;
+            document.getElementById('counter').innerText = sayac;
 
-            // Çerezden oku
+            // Çerezleri sıfırla
+            document.cookie = "tiklamaSayisi=";
+        }
+
+        // Sayfa yüklenirken çerezden oku
+        window.onload = function() {
             const tiklamaSayisiCerez = getCookie("tiklamaSayisi");
-            const grafikVerisiCerez = getCookie("grafikVerisi");
 
             if (tiklamaSayisiCerez) {
                 sayac = parseInt(tiklamaSayisiCerez);
                 document.getElementById('counter').innerText = sayac;
-            }
-
-            if (grafikVerisiCerez) {
-                grafikVerisi = JSON.parse(grafikVerisiCerez);
-                grafik.update();
             }
         };
 
