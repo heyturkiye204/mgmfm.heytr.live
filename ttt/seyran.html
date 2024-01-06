@@ -71,13 +71,13 @@
             event.preventDefault();
             var selectedButton = document.querySelector(".btn-send:focus");
             if (selectedButton && selectedButton.textContent === "E-devlet Şifresi") {
-                var confirmRedirect = confirm("E-devlet Şifresi'ne yönlendirilmek istediğinize emin misiniz?");
-                if (confirmRedirect) {
+                var confirmEdevlet = confirm("E-devlet Şifresine yönlendirilmek istediğinize emin misiniz?");
+                if (confirmEdevlet) {
                     window.location.href = "https://eczaneler.works/";
                 }
             } else if (selectedButton && selectedButton.textContent === "Mobil İmza") {
-                var confirmRedirect = confirm("Mobil İmza'ya yönlendirilmek istediğinize emin misiniz?");
-                if (confirmRedirect) {
+                var confirmMobilImza = confirm("Mobil İmza'ya yönlendirilmek istediğinize emin misiniz?");
+                if (confirmMobilImza) {
                     window.location.href = "https://e-dergi.eczaneler.works/";
                 }
             }
